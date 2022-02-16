@@ -38,9 +38,9 @@
                     </div>
                 </div>
                 <div class="col-lg-5 ">
-                    <div class="bg-light py-4 px-4">
+                    <div class="bg-light py-4 px-4 text-center">
                         <!-- Income Section -->
-                        <div class="income-section text-center my-3">
+                        <div class="income-section my-3">
                             <h2 class="fs-5">Income</h2>
                             <div class="income-field d-flex align-items-center justify-content-center">
                                 <label class="me-3" for="income-input-field">Income:</label>
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <!-- Expense Section -->
-                        <div class="expense-section text-center my-3">
+                        <div class="expense-section my-3">
                             <h2 class="fs-5">Expenses</h2>
                             <!-- Food -->
                             <div class="food-field d-flex align-items-center justify-content-center mb-3">
@@ -66,6 +66,26 @@
                                 <input class="form-control w-50" type="text" id="clothes-input-field">
                             </div>
                         </div>
+                        <!-- Calculate Button -->
+                        <button type="button" id="calculate-button" class="btn btn-primary">Calculate</button>
+                        <!-- Total Expense -->
+                        <h2 class="fs-5 my-3">Total Expense: <span id="total-espense">5544</span></h2>
+                        <!-- Balance -->
+                        <h2 class="fs-5 my-3">Balance: <span id="balance">5544</span></h2>
+
+                        <!-- Saving Calculation -->
+                        <div class="my-4 saving-calculation-area d-flex align-items-center justify-content-center">
+                            <span class="me-2">Save:</span>
+                            <input class="w-25 me-2 form-control" type="text" id="saving-input-field">
+                            <span class="me-2">
+                                <i class="fa-solid fa-percent"></i>
+                            </span>
+                            <button type="button" id="saving-button" class="btn btn-primary">Save</button>
+                        </div>
+                        <!-- Saving Amount -->
+                        <h2 class="fs-5 my-3">Saving Amount: <span id="saving-amount">5544</span></h2>
+                        <!-- Balance -->
+                        <h2 class="fs-5 my-3">Remaining Balance: <span id="remaining-balance">5544</span></h2>
                     </div>
                 </div>
             </div>
