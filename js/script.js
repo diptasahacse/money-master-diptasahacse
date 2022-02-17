@@ -63,7 +63,7 @@ document.getElementById('calculate-button').addEventListener('click', function()
         makeExpenseEmpty();
 
     } else if (totalExpense > getIncome) {
-        alert('Total Expense should not greater than Balance');
+        alert('Total Expense should not greater than your income amount..');
         makeExpenseEmpty();
     } else {
         checkEmpty('food-input-field');
