@@ -4,6 +4,7 @@ Email: diptasaha.lpu.cse@gmail.com
 Description: This is Programming Hero 5th Assignment
 Date: 16th Feb 2022 
 */
+// For getting input field value
 function getInputValue(id) {
     return document.getElementById(id).value;
 }
@@ -11,7 +12,7 @@ function getInputValue(id) {
 function setInnerText(id, value) {
     document.getElementById(id).innerText = value;
 }
-// Set Input Value
+// Set Input field Value
 function setValue(id, value) {
     document.getElementById(id).value = value;
 }
@@ -53,6 +54,7 @@ document.getElementById('calculate-button').addEventListener('click', function()
     let totalExpense = getFoodCost + getRentCost + getClothesCost;
     // Calculate Balance
     let balance = getIncome - totalExpense;
+    // check validation
     if (getInputValue('income-input-field') == '') {
         alert('You did not mentioned your income..');
         makeExpenseEmpty();

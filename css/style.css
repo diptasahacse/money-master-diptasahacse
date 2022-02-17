@@ -13,6 +13,7 @@ CSS INDEX
 1. Google Font
 2. Common CSS
 3. Reusable Component
+4. Overwrite Bootstrap class
 ====================================================*/
 
 
@@ -30,13 +31,16 @@ body {
     height: 625px;
 }
 
-.container {
-    width: 92%;
-}
-
 
 /* 3. Reusable Component */
 
 .header-logo-color {
     color: #FFD700;
+}
+
+
+/* 4. Overwrite Bootstrap class */
+
+.container {
+    width: 92%;
 }
