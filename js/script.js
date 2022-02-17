@@ -1,38 +1,45 @@
-function getInputValue() {
-
-
+function getInputValue(id) {
+    const getNumberInput = Number(document.getElementById(id).value);
+    return getNumberInput;
 }
-//Calculate Button Listener
+
+function setInnerText(id, value) {
+    document.getElementById(id).innerText = value;
+}
+// check validity by using keyup listener
+function checkValidity(id) {
+    console.log('change');
+}
 document.getElementById('calculate-button').addEventListener('click', function() {
     // Get Income
-    const getIncome = Number(document.getElementById('income-input-field').value);
+    const getIncome = getInputValue('income-input-field');
     // Get All Expense
-    const getFoodCost = Number(document.getElementById('food-input-field').value);
-    const getRentCost = Number(document.getElementById('rent-input-field').value);
-    const getClothesCost = Number(document.getElementById('clothes-input-field').value);
-    // console.log(getIncome, getFoodCost, getRentCost, getClothesCost);
+    const getFoodCost = getInputValue('food-input-field');
+    const getRentCost = getInputValue('rent-input-field');
+    const getClothesCost = getInputValue('clothes-input-field');
     // Total Expenses Calculate
     let totalExpense = getFoodCost + getRentCost + getClothesCost;
     // set total Expense
-    document.getElementById('total-expense').innerText = totalExpense;
+    setInnerText('total-expense', totalExpense);
     // Calculate Balance
     let balance = getIncome - totalExpense;
     // Set Balance
-    document.getElementById('balance').innerText = balance;
+    setInnerText('balance', balance);
 
 });
 //Saving Button Listener
 document.getElementById('saving-button').addEventListener('click', function() {
     // Get Income
-    const getIncome = Number(document.getElementById('income-input-field').value);
+    const getIncome = getInputValue('income-input-field');
     // Get Saving Percent
-    const getSavingPercent = Number(document.getElementById('saving-input-field').value);
+    const getSavingPercent = getInputValue('saving-input-field');
     // Calculate Saving Amount
     let savingAmount = (getIncome * getSavingPercent) / 100;
     let remainingBalance = getIncome - savingAmount;
     // set Saving Amount
-    document.getElementById('saving-amount').innerText = savingAmount;
+    setInnerText('saving-amount', savingAmount);
     // set Remaining Balance
-    document.getElementById('remaining-balance').innerText = remainingBalance;
+    setInnerText('remaining-balance', remainingBalance);
+
 
 });
