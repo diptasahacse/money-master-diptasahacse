@@ -57,7 +57,7 @@ document.getElementById('calculate-button').addEventListener('click', function()
         makeExpenseEmpty();
 
     } else if (getIncome == 0) {
-        alert('Income Field is 0 or empty');
+        alert('Income Field is 0');
         makeExpenseEmpty();
 
     } else if (totalExpense > getIncome) {
@@ -86,12 +86,14 @@ document.getElementById('saving-button').addEventListener('click', function() {
     // Check validation
     if (getInputValue('income-input-field') == '') {
         alert("You did not mentioned your income..!");
+        setValue('saving-input-field', '');
 
     } else if (getIncome == 0) {
         alert("Income is 0");
     } else if (getIncome > 0) {
-        if (savingAmount == 0 && currentBalance == 0) {
+        if (document.getElementById('balance').innerText == '') {
             alert('You did not added your income in your balance..!');
+            setValue('saving-input-field', '');
 
         } else {
             if (savingAmount > currentBalance) {
