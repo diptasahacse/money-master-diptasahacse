@@ -30,6 +30,10 @@ body {
     height: 625px;
 }
 
+.container {
+    width: 92%;
+}
+
 
 /* 3. Reusable Component */
 

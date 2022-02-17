@@ -7,10 +7,6 @@ Date: 16th Feb 2022
 function getInputValue(id) {
     return document.getElementById(id).value;
 }
-
-function getInnerText(id) {
-    return document.getElementById(id).innerText;
-}
 // Set Inner Text
 function setInnerText(id, value) {
     document.getElementById(id).innerText = value;
@@ -23,12 +19,19 @@ function setValue(id, value) {
 function checkNumberValidate(id) {
     let numberValue = Number(getInputValue(id));
     if (isNaN(numberValue)) {
-        alert('Please input number value..!');
+        alert('You can not enter anything except Number, please input a number value..!');
         setValue(id, '');
     } else if (numberValue < 0) {
         alert('Please input positive number value..!');
         setValue(id, '');
     }
+}
+// Make Expense Field Empty
+function makeExpenseEmpty() {
+    setValue('food-input-field', '');
+    setValue('rent-input-field', '');
+    setValue('clothes-input-field', '');
+
 }
 // checkEmpty or not
 function checkEmpty(id) {
@@ -49,16 +52,17 @@ document.getElementById('calculate-button').addEventListener('click', function()
     let totalExpense = getFoodCost + getRentCost + getClothesCost;
     // Calculate Balance
     let balance = getIncome - totalExpense;
+    if (getInputValue('income-input-field') == '') {
+        alert('You did not mentioned your income..');
+        makeExpenseEmpty();
 
-    // Check if Total Expense is less than Balance or Not
-    if (getIncome == 0) {
+    } else if (getIncome == 0) {
         alert('Income Field is 0 or empty');
+        makeExpenseEmpty();
 
     } else if (totalExpense > getIncome) {
         alert('Total Expense should not greater than Balance');
-        setValue('food-input-field', '');
-        setValue('rent-input-field', '');
-        setValue('clothes-input-field', '');
+        makeExpenseEmpty();
     } else {
         checkEmpty('food-input-field');
         checkEmpty('rent-input-field');
@@ -77,21 +81,30 @@ document.getElementById('saving-button').addEventListener('click', function() {
     const getSavingPercent = Number(getInputValue('saving-input-field'));
     // Calculate Saving Amount
     let savingAmount = (getIncome * getSavingPercent) / 100;
-    let currentBalance = Number(getInnerText('balance'));
+    let currentBalance = Number(document.getElementById('balance').innerText);
     let remainingBalance = currentBalance - savingAmount;
-    // Check saving amount is greater than remaining balance or not
-    if (getIncome == 0) {
-        alert('Income Field is 0 or empty');
+    // Check validation
+    if (getInputValue('income-input-field') == '') {
+        alert("You did not mentioned your income..!");
 
-    } else if (savingAmount > currentBalance) {
-        alert("You don't have enough Money to save..!");
-        setValue('saving-input-field', '');
+    } else if (getIncome == 0) {
+        alert("Income is 0");
+    } else if (getIncome > 0) {
+        if (savingAmount == 0 && currentBalance == 0) {
+            alert('You did not added your income in your balance..!');
 
-    } else {
-        checkEmpty('saving-input-field');
-        // set Saving Amount
-        setInnerText('saving-amount', savingAmount);
-        // set Remaining Balance
-        setInnerText('remaining-balance', remainingBalance);
+        } else {
+            if (savingAmount > currentBalance) {
+                alert("You don't have enough Money to save..!");
+                setValue('saving-input-field', '');
+            } else {
+                checkEmpty('saving-input-field');
+                // set Saving Amount
+                setInnerText('saving-amount', savingAmount);
+                // set Remaining Balance
+                setInnerText('remaining-balance', remainingBalance);
+            }
+        }
+
     }
 });
