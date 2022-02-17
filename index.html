@@ -44,7 +44,7 @@
                             <h2 class="fs-5">Income</h2>
                             <div class="income-field d-flex align-items-center justify-content-center">
                                 <label class="me-3" for="income-input-field">Income:</label>
-                                <input class="form-control w-50" onkeyup="checkValidity('income-input-field')" type="text" id="income-input-field">
+                                <input class="form-control w-50" onchange="checkNumberValidate(this.id)" type="text" id="income-input-field">
                             </div>
                         </div>
                         <!-- Expense Section -->
@@ -53,17 +53,17 @@
                             <!-- Food -->
                             <div class="food-field d-flex align-items-center justify-content-center mb-3">
                                 <label class="me-3" for="food-input-field">Food:</label>
-                                <input class="form-control w-50" type="text" id="food-input-field">
+                                <input class="form-control w-50" type="text" onchange="checkNumberValidate(this.id)" id="food-input-field">
                             </div>
                             <!-- Rent -->
                             <div class="food-field d-flex align-items-center justify-content-center mb-3">
                                 <label class="me-3" for="rent-input-field">Rent:</label>
-                                <input class="form-control w-50" type="text" id="rent-input-field">
+                                <input class="form-control w-50" onchange="checkNumberValidate(this.id)" type="text" id="rent-input-field">
                             </div>
                             <!-- Clothes -->
                             <div class="food-field d-flex align-items-center justify-content-center">
                                 <label class="me-3" for="clothes-input-field">Clothes:</label>
-                                <input class="form-control w-50" type="text" id="clothes-input-field">
+                                <input class="form-control w-50" onchange="checkNumberValidate(this.id)" type="text" id="clothes-input-field">
                             </div>
                         </div>
                         <!-- Calculate Button -->
@@ -76,16 +76,16 @@
                         <!-- Saving Calculation -->
                         <div class="my-4 saving-calculation-area d-flex align-items-center justify-content-center">
                             <span class="me-2">Save:</span>
-                            <input class="w-25 me-2 form-control" type="text" id="saving-input-field">
+                            <input class="w-25 me-2 form-control" type="text" onchange="checkNumberValidate(this.id)" id="saving-input-field">
                             <span class="me-2">
                                 <i class="fa-solid fa-percent"></i>
                             </span>
                             <button type="button" id="saving-button" class="btn btn-primary">Save</button>
                         </div>
                         <!-- Saving Amount -->
-                        <h2 class="fs-5 my-3">Saving Amount: <span id="saving-amount">5544</span></h2>
+                        <h2 class="fs-5 my-3">Saving Amount: <span id="saving-amount"></span></h2>
                         <!-- Balance -->
-                        <h2 class="fs-5 my-3">Remaining Balance: <span id="remaining-balance">5544</span></h2>
+                        <h2 class="fs-5 my-3">Remaining Balance: <span id="remaining-balance"></span></h2>
                     </div>
                 </div>
             </div>
