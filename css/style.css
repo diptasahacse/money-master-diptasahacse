@@ -26,6 +26,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.money-img {
+    height: 625px;
+}
+
 
 /* 3. Reusable Component */
 
