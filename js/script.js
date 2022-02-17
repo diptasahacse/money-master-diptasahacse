@@ -35,6 +35,7 @@ function makeExpenseEmpty() {
 }
 // checkEmpty or not
 function checkEmpty(id) {
+    // if it is empty then set value as 0
     if (getInputValue(id) == '') {
         setValue(id, 0);
     }
@@ -58,6 +59,7 @@ document.getElementById('calculate-button').addEventListener('click', function()
 
     } else if (getIncome == 0) {
         alert('Income Field is 0');
+        setValue('income-input-field', '');
         makeExpenseEmpty();
 
     } else if (totalExpense > getIncome) {
@@ -89,16 +91,20 @@ document.getElementById('saving-button').addEventListener('click', function() {
         setValue('saving-input-field', '');
 
     } else if (getIncome == 0) {
-        alert("Income is 0");
+        alert("Your income is 0");
+        setValue('saving-input-field', '');
+
     } else if (getIncome > 0) {
         if (document.getElementById('balance').innerText == '') {
             alert('You did not added your income in your balance..!');
             setValue('saving-input-field', '');
-
         } else {
+            // check saving account is greater than current balance
             if (savingAmount > currentBalance) {
                 alert("You don't have enough Money to save..!");
                 setValue('saving-input-field', '');
+                setInnerText('saving-amount', '');
+                setInnerText('remaining-balance', '');
             } else {
                 checkEmpty('saving-input-field');
                 // set Saving Amount
